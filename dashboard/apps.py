@@ -1,3 +1,7 @@
+# GitLens -- Git supercharged
+# Author : rizkyadiryanto14
+# Email  : adiryantorizky140820@gmail.com
+
 from django.apps import AppConfig
 
 

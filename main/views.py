@@ -1,3 +1,7 @@
+# GitLens -- Git supercharged
+# Author : rizkyadiryanto14
+# Email  : adiryantorizky140820@gmail.com
+
 from django.http.response import HttpResponse
 from django.shortcuts import render
 from django.shortcuts import render, redirect
@@ -71,24 +75,26 @@ def Account(request):
             messages.error(request, "Username or maybe Password is incorrect")
     return render(request, "account.html", {})
 
+
 @csrf_exempt
-def AccountWithPay(request,id):
+def AccountWithPay(request, id):
     plan = Plan.objects.get(id=id)
     if request.method == 'POST':
         data = json.loads(request.body.decode('utf-8'))
         data = data.get('data')
         user_created = User.objects.create(username=data.get('username'),
-                password=data.get('password'),
-                email=data.get('email'),
-                first_name=data.get('name'),
-                )
-        user_profile , _ = UserProfile.objects.get_or_create(user=user_created)
+                                           password=data.get('password'),
+                                           email=data.get('email'),
+                                           first_name=data.get('name'),
+                                           )
+        user_profile, _ = UserProfile.objects.get_or_create(user=user_created)
         user_profile.gender = data.get('gender')
         user_profile.city = data.get('city')
         user_profile.address = data.get('address')
         user_profile.country = data.get('country')
         user_profile.save()
-        user = authenticate(request,username=user_created.username, password=data.get('password'))
-        login(request,user_created)
-        return JsonResponse("acccount created",status=200,safe=False)
-    return render(request, "accountwithpay.html", {'plan':plan})
+        user = authenticate(
+            request, username=user_created.username, password=data.get('password'))
+        login(request, user_created)
+        return JsonResponse("acccount created", status=200, safe=False)
+    return render(request, "accountwithpay.html", {'plan': plan})

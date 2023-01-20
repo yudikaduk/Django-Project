@@ -1,11 +1,10 @@
+# GitLens -- Git supercharged
+# Author : rizkyadiryanto14
+# Email  : adiryantorizky140820@gmail.com
+
 from django.contrib import admin
-from .models import (CompanyInformation
-,YourBusinessRecommendation
-,YourCurrentTradelines
-,VudokeBusinessIntelligenceScore
-,BusinessReports
-,UpdateYourCompanyInformation
-,Dispute,VukodeScore)
+from .models import (CompanyInformation, YourBusinessRecommendation, YourCurrentTradelines,
+                     VudokeBusinessIntelligenceScore, BusinessReports, UpdateYourCompanyInformation, Dispute, VukodeScore)
 # Register your models here.
 
 admin.site.register(CompanyInformation)

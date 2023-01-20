@@ -1,12 +1,13 @@
+# GitLens -- Git supercharged
+# Author : rizkyadiryanto14
+# Email  : adiryantorizky140820@gmail.com
+
 from django.urls import path
 from . import views
 
 urlpatterns = [
     path("", views.index, name="dashboard"),
     path("profile", views.Profile, name="profile"),
-    path("cancel-membership", views.CancelMembership, name="cancel-membership"),
-    path("upgrade-membership", views.UpgradeMembership, name="upgrade-membership"),
-    # path("your-business-report", views.YourBusinessReport, name="your-business-report"),
     path("dispute", views.DisputeView, name="dispute"),
     path(
         "your-company-information",
